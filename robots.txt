@@ -1,0 +1,62 @@
+# =====================================================
+# YK Digital Hub — robots.txt
+# https://your-domain.com/robots.txt
+# =====================================================
+
+# Allow all well-behaved search engine bots by default
+User-agent: *
+Allow: /
+
+# ==================== BLOCK ADMIN AREA ====================
+Disallow: /admin/
+Disallow: /admin/*
+
+# ==================== BLOCK SYSTEM FOLDERS ====================
+Disallow: /config/
+Disallow: /includes/
+Disallow: /database/
+
+# ==================== BLOCK SENSITIVE FILES ====================
+Disallow: /README.md
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /.env
+Disallow: /.git/
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.md$
+
+# ==================== BLOCK DYNAMIC / NON-PUBLIC PHP ====================
+Disallow: /test-email.php
+Disallow: /test.php
+Disallow: /admin/upload.php
+
+# ==================== BLOCK SEARCH / FILTER PARAMS ====================
+# Prevent duplicate content from filtered listing pages
+Disallow: /*?search=
+Disallow: /*?status=
+Disallow: /*?featured=
+Disallow: /*?page=
+
+# ==================== ALLOW UPLOADS (images need to be indexed) ====================
+Allow: /uploads/
+Allow: /uploads/*.jpg
+Allow: /uploads/*.jpeg
+Allow: /uploads/*.png
+Allow: /uploads/*.gif
+Allow: /uploads/*.webp
+Allow: /uploads/*.svg
+
+# ==================== ALLOW ASSETS (CSS/JS/images) ====================
+Allow: /assets/
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# ==================== CRAWL DELAY (be polite) ====================
+Crawl-delay: 1
+
+# =====================================================
+# SITEMAP
+# =====================================================
+Sitemap: https://your-domain.com/sitemap.xml
