@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # YK Digital Hub — Digital Agency Website
 
 A modern, full-stack digital agency website built with **PHP, MySQL, and Tailwind CSS**.  
@@ -88,4 +89,3 @@ Built to be maintainable by non-developers through a full admin dashboard.
 
 ---
 
-## Project Structure
