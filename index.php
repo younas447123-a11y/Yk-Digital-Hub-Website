@@ -74,7 +74,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
     <div class="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.4),transparent_60%)]" aria-hidden="true"></div>
 
     <!-- ==== Content ==== -->
-    <div class="relative z-[2] max-w-7xl mx-auto px-6 py-24 w-full">
+    <div class="relative z-[2] max-w-7xl mx-auto px-6 py-24 w-full xl:pr-[440px]">
 
         <!-- Badge -->
         <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 backdrop-blur-md rounded-full text-slate-200 text-xs font-semibold tracking-wide mb-6 opacity-0 animate-fade-up"
@@ -172,7 +172,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
     </div>
 
     <!-- ==== Floating Glass Cards (desktop only) ==== -->
-    <div class="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 w-[min(400px,34vw)] flex-col gap-4 z-[2] opacity-0 animate-fade-up"
+    <div class="hidden xl:flex absolute right-6 top-1/2 -translate-y-1/2 w-[min(400px,34vw)] flex-col gap-4 z-[2] opacity-0 animate-fade-up"
          style="animation-delay: 1.65s;" aria-hidden="true">
 
         <div class="bg-white/[0.07] border border-white/15 backdrop-blur-xl p-6 rounded-2xl shadow-2xl animate-float-y">

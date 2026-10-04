@@ -22,22 +22,22 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
             </a>
 
             <!-- ============ DESKTOP NAV ============ -->
-            <nav class="hidden lg:flex items-center gap-3 ml-10" aria-label="Main navigation">
+            <nav class="hidden xl:flex items-center gap-1 2xl:gap-3 ml-4 2xl:ml-10" aria-label="Main navigation">
 
                 <a href="<?= BASE_URL ?>/"
-                   class="px-5 py-3 text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'home' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
+                   class="whitespace-nowrap px-2 xl:px-3 2xl:px-5 py-3 text-[15px] 2xl:text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'home' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
                     Home
                 </a>
 
                 <a href="<?= BASE_URL ?>/about.php"
-                   class="px-5 py-3 text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'about' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
+                   class="whitespace-nowrap px-2 xl:px-3 2xl:px-5 py-3 text-[15px] 2xl:text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'about' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
                     About
                 </a>
 
                 <!-- ====== SERVICES DROPDOWN ====== -->
                 <div class="relative group">
                     <button type="button"
-                            class="flex items-center gap-2 px-5 py-3 text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'services' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>"
+                            class="flex items-center gap-2 whitespace-nowrap px-2 xl:px-3 2xl:px-5 py-3 text-[15px] 2xl:text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'services' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>"
                             aria-haspopup="true" aria-expanded="false">
                         Our Services
                         <i class="fas fa-chevron-down text-[11px] mt-0.5 transition-transform group-hover:rotate-180"></i>
@@ -92,7 +92,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
                 <!-- ====== PORTFOLIO DROPDOWN ====== -->
                 <div class="relative group">
                     <button type="button"
-                            class="flex items-center gap-2 px-5 py-3 text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'portfolio' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>"
+                            class="flex items-center gap-2 whitespace-nowrap px-2 xl:px-3 2xl:px-5 py-3 text-[15px] 2xl:text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'portfolio' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>"
                             aria-haspopup="true" aria-expanded="false">
                         Portfolio
                         <i class="fas fa-chevron-down text-[11px] mt-0.5 transition-transform group-hover:rotate-180"></i>
@@ -145,25 +145,25 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
                 </div>
 
                 <a href="<?= BASE_URL ?>/blog/"
-                   class="px-5 py-3 text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'blog' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
+                   class="whitespace-nowrap px-2 xl:px-3 2xl:px-5 py-3 text-[15px] 2xl:text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'blog' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
                     Blog
                 </a>
 
                 <a href="<?= BASE_URL ?>/contact.php"
-                   class="px-5 py-3 text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'contact' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
+                   class="whitespace-nowrap px-2 xl:px-3 2xl:px-5 py-3 text-[15px] 2xl:text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'contact' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
                     Contact
                 </a>
             </nav>
 
             <!-- ============ RIGHT BUTTONS ============ -->
-            <div class="hidden lg:flex items-center gap-3">
+            <div class="hidden xl:flex items-center gap-2 2xl:gap-3 shrink-0">
                 <a href="<?= htmlspecialchars($whatsapp_url) ?>" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2.5 px-6 py-3.5 text-white font-bold text-[15px] rounded-full shadow-sm transition hover:opacity-90 hover:-translate-y-0.5"
+                   class="inline-flex items-center gap-2.5 whitespace-nowrap px-4 2xl:px-6 py-3.5 text-white font-bold text-[15px] rounded-full shadow-sm transition hover:opacity-90 hover:-translate-y-0.5"
                    style="background:#25D366;">
                     <i class="fab fa-whatsapp text-lg"></i> WhatsApp
                 </a>
                 <a href="<?= BASE_URL ?>/contact.php"
-                   class="inline-flex items-center gap-2.5 px-7 py-3.5 text-white font-bold text-[15px] rounded-full shadow-md transition hover:opacity-90 hover:-translate-y-0.5"
+                   class="inline-flex items-center gap-2.5 whitespace-nowrap px-4 2xl:px-7 py-3.5 text-white font-bold text-[15px] rounded-full shadow-md transition hover:opacity-90 hover:-translate-y-0.5"
                    style="background: linear-gradient(90deg, #FF8A00 0%, #FF6B00 100%);">
                     Get Free Quote <i class="fas fa-arrow-right text-sm"></i>
                 </a>
@@ -171,7 +171,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
 
             <!-- Mobile toggle -->
             <button id="navToggle"
-                    class="lg:hidden inline-flex items-center justify-center w-12 h-12 rounded-lg hover:bg-slate-100 transition"
+                    class="xl:hidden inline-flex items-center justify-center w-12 h-12 rounded-lg hover:bg-slate-100 transition"
                     aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
                 <i class="fas fa-bars text-2xl" style="color:#2B3F5C;"></i>
             </button>
@@ -179,7 +179,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
     </div>
 
     <!-- ============ MOBILE NAV ============ -->
-    <div id="mobileNav" class="lg:hidden hidden border-t border-slate-200 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <div id="mobileNav" class="xl:hidden hidden border-t border-slate-200 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto">
         <nav class="max-w-[1600px] mx-auto px-4 py-4 space-y-1" aria-label="Mobile navigation">
 
             <a href="<?= BASE_URL ?>/"
