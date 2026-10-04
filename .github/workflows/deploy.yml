@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -23,3 +24,12 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           protocol: ftp
           server-dir: /htdocs/
+
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            .htaccess
+            config/database.php
+            config/config.php
+            uploads/**
