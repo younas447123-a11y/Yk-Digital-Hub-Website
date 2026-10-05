@@ -130,7 +130,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                         <article class="blog-card">
                             <a href="<?= BASE_URL ?>/blog/<?= htmlspecialchars($p['slug']) ?>/" class="blog-card-image">
                                 <?php if (!empty($p['featured_image'])): ?>
-                                    <img src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['featured_image_alt'] ?: $p['title']) ?>" loading="lazy">
+                                    <img src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['featured_image_alt'] ?: $p['title']) ?>" width="800" height="500" loading="lazy">
                                 <?php else: ?><div class="blog-card-placeholder"><i class="fas fa-newspaper"></i></div><?php endif; ?>
                             </a>
                             <div class="blog-card-body">
@@ -165,7 +165,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
 
             <?php if (!empty($post['featured_image'])): ?>
                 <figure class="blog-featured-image">
-                    <img src="<?= htmlspecialchars($post['featured_image']) ?>" alt="<?= htmlspecialchars($post['featured_image_alt'] ?: $post['title']) ?>">
+                    <img src="<?= htmlspecialchars($post['featured_image']) ?>" alt="<?= htmlspecialchars($post['featured_image_alt'] ?: $post['title']) ?>" width="1200" height="800">
                 </figure>
             <?php endif; ?>
 
@@ -192,7 +192,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                         <article class="blog-card">
                             <a href="<?= BASE_URL ?>/blog/<?= htmlspecialchars($r['slug']) ?>/" class="blog-card-image">
                                 <?php if (!empty($r['featured_image'])): ?>
-                                    <img src="<?= htmlspecialchars($r['featured_image']) ?>" alt="<?= htmlspecialchars($r['title']) ?>" loading="lazy">
+                                    <img src="<?= htmlspecialchars($r['featured_image']) ?>" alt="<?= htmlspecialchars($r['title']) ?>" width="800" height="500" loading="lazy">
                                 <?php else: ?><div class="blog-card-placeholder"><i class="fas fa-newspaper"></i></div><?php endif; ?>
                             </a>
                             <div class="blog-card-body">

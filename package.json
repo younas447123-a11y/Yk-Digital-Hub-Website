@@ -1,0 +1,24 @@
+{
+  "name": "yk-digital-hub",
+  "version": "1.0.0",
+  "description": "<<<<<<< HEAD\r # YK Digital Hub — Digital Agency Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/younas447123-a11y/Yk-Digital-Hub-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/younas447123-a11y/Yk-Digital-Hub-Website/issues"
+  },
+  "homepage": "https://github.com/younas447123-a11y/Yk-Digital-Hub-Website#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

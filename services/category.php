@@ -197,6 +197,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                                 <?php if (!empty($s['hero_image'])): ?>
                                     <img src="<?= htmlspecialchars($s['hero_image']) ?>"
                                          alt="<?= htmlspecialchars($s['title']) ?> — <?= htmlspecialchars($child['name']) ?> service by YK Digital Hub"
+                                         width="800" height="500"
                                          loading="lazy"
                                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                                 <?php else: ?>

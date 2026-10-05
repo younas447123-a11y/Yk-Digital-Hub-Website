@@ -122,6 +122,7 @@ if (!function_exists('renderFeaturedPortfolio')) {
                                     <?php if ($img): ?>
                                         <img src="<?= htmlspecialchars($img) ?>"
                                              alt="<?= htmlspecialchars($p['title']) ?> — <?= htmlspecialchars($p['child_name']) ?> project by YK Digital Hub"
+                                             width="800" height="500"
                                              loading="lazy"
                                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                                     <?php else: ?>

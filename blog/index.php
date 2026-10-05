@@ -51,7 +51,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                     <article class="blog-card">
                         <a href="<?= BASE_URL ?>/blog/<?= htmlspecialchars($p['slug']) ?>/" class="blog-card-image">
                             <?php if (!empty($p['featured_image'])): ?>
-                                <img src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['featured_image_alt'] ?: $p['title']) ?>" loading="lazy">
+                                <img src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['featured_image_alt'] ?: $p['title']) ?>" width="800" height="500" loading="lazy">
                             <?php else: ?>
                                 <div class="blog-card-placeholder"><i class="fas fa-newspaper"></i></div>
                             <?php endif; ?>

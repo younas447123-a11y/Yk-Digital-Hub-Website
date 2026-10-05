@@ -162,7 +162,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
 
                 <?php if ($hero_image): ?>
                     <div class="cs-hero-image">
-                        <img src="<?= htmlspecialchars($hero_image) ?>" alt="<?= htmlspecialchars($project['title']) ?>" loading="eager">
+                        <img src="<?= htmlspecialchars($hero_image) ?>" alt="<?= htmlspecialchars($project['title']) ?>" width="1600" height="900" loading="eager">
                     </div>
                 <?php endif; ?>
             </div>
@@ -251,7 +251,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                         <?php if (!empty($s['icon'])): ?><div class="icon"><i class="<?= htmlspecialchars($s['icon']) ?>"></i></div><?php endif; ?>
                         <h3><?= htmlspecialchars($s['title']) ?></h3>
                         <?php if (!empty($s['description'])): ?><p><?= htmlspecialchars($s['description']) ?></p><?php endif; ?>
-                        <?php if (!empty($s['image'])): ?><img src="<?= htmlspecialchars($s['image']) ?>" alt="<?= htmlspecialchars($s['title']) ?>" loading="lazy"><?php endif; ?>
+                        <?php if (!empty($s['image'])): ?><img src="<?= htmlspecialchars($s['image']) ?>" alt="<?= htmlspecialchars($s['title']) ?>" width="1200" height="800" loading="lazy"><?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -279,7 +279,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                     </div>
                     <?php if ($has_image): ?>
                         <div class="cs-section-image">
-                            <img src="<?= htmlspecialchars($sec['image']) ?>" alt="<?= htmlspecialchars($sec['heading'] ?: $project['title']) ?>" loading="lazy">
+                            <img src="<?= htmlspecialchars($sec['image']) ?>" alt="<?= htmlspecialchars($sec['heading'] ?: $project['title']) ?>" width="1200" height="800" loading="lazy">
                         </div>
                     <?php endif; ?>
                 </div>
@@ -329,14 +329,14 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <?php if (!empty($before_imgs)): $b = $before_imgs[0]; ?>
                 <figure class="cs-ba-item">
                     <span class="cs-ba-label">Before</span>
-                    <img src="<?= htmlspecialchars($b['image']) ?>" alt="<?= htmlspecialchars($b['alt_text'] ?: 'Before') ?>" loading="lazy">
+                    <img src="<?= htmlspecialchars($b['image']) ?>" alt="<?= htmlspecialchars($b['alt_text'] ?: 'Before') ?>" width="1200" height="800" loading="lazy">
                     <?php if (!empty($b['caption'])): ?><figcaption><?= htmlspecialchars($b['caption']) ?></figcaption><?php endif; ?>
                 </figure>
                 <?php endif; ?>
                 <?php if (!empty($after_imgs)): $a = $after_imgs[0]; ?>
                 <figure class="cs-ba-item">
                     <span class="cs-ba-label">After</span>
-                    <img src="<?= htmlspecialchars($a['image']) ?>" alt="<?= htmlspecialchars($a['alt_text'] ?: 'After') ?>" loading="lazy">
+                    <img src="<?= htmlspecialchars($a['image']) ?>" alt="<?= htmlspecialchars($a['alt_text'] ?: 'After') ?>" width="1200" height="800" loading="lazy">
                     <?php if (!empty($a['caption'])): ?><figcaption><?= htmlspecialchars($a['caption']) ?></figcaption><?php endif; ?>
                 </figure>
                 <?php endif; ?>
@@ -353,7 +353,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
             <div class="cs-gallery-grid">
                 <?php foreach ($gallery as $img): ?>
                     <figure class="cs-gallery-item">
-                        <img src="<?= htmlspecialchars($img['image']) ?>" alt="<?= htmlspecialchars($img['alt_text'] ?: $project['title']) ?>" loading="lazy">
+                        <img src="<?= htmlspecialchars($img['image']) ?>" alt="<?= htmlspecialchars($img['alt_text'] ?: $project['title']) ?>" width="1200" height="800" loading="lazy">
                         <?php if (!empty($img['caption'])): ?><figcaption><?= htmlspecialchars($img['caption']) ?></figcaption><?php endif; ?>
                     </figure>
                 <?php endforeach; ?>
@@ -410,7 +410,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <?php foreach ($related as $rp): ?>
                     <a class="cs-related-card" href="<?= BASE_URL ?>/portfolio/web-design-development/<?= htmlspecialchars($rp['child_slug']) ?>/<?= htmlspecialchars($rp['slug']) ?>/">
                         <?php if (!empty($rp['hero_image'])): ?>
-                            <img src="<?= htmlspecialchars($rp['hero_image']) ?>" alt="<?= htmlspecialchars($rp['title']) ?>" loading="lazy">
+                            <img src="<?= htmlspecialchars($rp['hero_image']) ?>" alt="<?= htmlspecialchars($rp['title']) ?>" width="800" height="500" loading="lazy">
                         <?php endif; ?>
                         <span class="cs-related-cat"><?= htmlspecialchars($rp['child_name']) ?></span>
                         <h3><?= htmlspecialchars($rp['title']) ?></h3>

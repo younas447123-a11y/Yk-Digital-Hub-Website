@@ -1,63 +1,95 @@
 # =====================================================
-# YK Digital Hub — .htaccess
+# YK Digital Hub — .htaccess (Complete)
 # =====================================================
 
 RewriteEngine On
 RewriteBase /yk-digital-hub/
 
+# ==================== CACHE HEADERS ====================
+# Method 1: mod_headers (most reliable on InfinityFree)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|avif)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# Method 2: mod_expires (fallback)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp          "access plus 1 year"
+    ExpiresByType image/jpeg          "access plus 1 year"
+    ExpiresByType image/jpg           "access plus 1 year"
+    ExpiresByType image/png           "access plus 1 year"
+    ExpiresByType image/gif           "access plus 1 year"
+    ExpiresByType image/svg+xml       "access plus 1 year"
+    ExpiresByType image/x-icon        "access plus 1 year"
+    ExpiresByType text/css            "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType font/woff           "access plus 1 year"
+    ExpiresByType font/woff2          "access plus 1 year"
+    ExpiresByType text/html           "access plus 1 hour"
+</IfModule>
+
+# ==================== 301 REDIRECTS: .php → clean URL ====================
+RewriteCond %{THE_REQUEST} \s/+yk-digital-hub/index\.php[\s?] [NC]
+RewriteRule ^index\.php$ /yk-digital-hub/ [R=301,L,NE]
+
+RewriteCond %{REQUEST_URI} !^/yk-digital-hub/admin(?:/|$) [NC]
+RewriteCond %{REQUEST_URI} !^/yk-digital-hub/sitemap\.php$ [NC]
+RewriteCond %{REQUEST_URI} !^/yk-digital-hub/404\.php$ [NC]
+RewriteCond %{THE_REQUEST} \s/+([^?\s]*)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
 # ==================== SERVE REAL FILES FIRST ====================
-# If the URL points to a real FILE (like .php, .css, .jpg), serve it
-# directly and skip all routing rules below. This prevents infinite
-# rewrites on internal targets like services/web-design/detail.php.
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# ==================== ROUTING RULES ====================
-# (These only run if the URL is NOT a real file.)
+# ==================== PUBLIC PAGES ====================
+RewriteRule ^about/?$                       about.php [L,QSA]
+RewriteRule ^contact/?$                     contact.php [L,QSA]
+RewriteRule ^sitemap\.xml$                  sitemap.php [L]
 
-# Redirect the old display-name URL to the canonical service slug.
-RewriteCond %{THE_REQUEST} "\s/+yk-digital-hub/services/web-design(?:%20|\s)+(?:%26|&)(?:%20|\s)+development/?(?:[\s?])" [NC]
-RewriteRule ^services/.*$ /yk-digital-hub/services/web-design-development/ [R=301,L,NE]
+# ==================== BLOG ====================
+RewriteRule ^blog/?$                                  blog/index.php [L,QSA]
+RewriteRule ^blog/category/([^/]+)/?$                 blog/detail.php?category_slug=$1 [L,QSA]
+RewriteRule ^blog/([^/]+)/?$                          blog/detail.php?slug=$1 [L,QSA]
 
-# ---- BLOG ----
-RewriteRule ^blog/?$ blog/index.php [L,QSA]
-RewriteRule ^blog/category/([^/]+)/?$ blog/detail.php?category_slug=$1 [L,QSA]
-RewriteRule ^blog/([^/]+)/?$ blog/detail.php?slug=$1 [L,QSA]
+# ==================== PORTFOLIO ====================
+RewriteRule ^portfolio/web-design-development/([^/]+)/([^/]+)/?$   portfolio/web-design/case-study.php?slug=$2 [L,QSA]
+RewriteRule ^portfolio/digital-marketing/([^/]+)/([^/]+)/?$        portfolio/digital-marketing/case-study.php?slug=$2 [L,QSA]
+RewriteRule ^portfolio/([^/]+)/([^/]+)/?$                          portfolio/category.php?parent=$1&child=$2 [L,QSA]
+RewriteRule ^portfolio/([^/]+)/?$                                  portfolio/category.php?parent=$1 [L,QSA]
+RewriteRule ^portfolio/?$                                          portfolio/index.php [L,QSA]
 
-# ---- ABOUT / CONTACT ----
-RewriteRule ^about/?$ about.php [L,QSA]
-RewriteRule ^contact/?$ contact.php [L,QSA]
+# ==================== SERVICES ====================
+RewriteRule ^services/web-design-development/([^/]+)/([^/]+)/?$    services/web-design/detail.php?slug=$2 [L,QSA]
+RewriteRule ^services/digital-marketing/([^/]+)/([^/]+)/?$         services/digital-marketing/detail.php?slug=$2 [L,QSA]
+RewriteRule ^services/([^/]+)/([^/]+)/?$                           services/category.php?parent=$1&child=$2 [L,QSA]
+RewriteRule ^services/([^/]+)/?$                                   services/category.php?parent=$1 [L,QSA]
+RewriteRule ^services/?$                                           services/index.php [L,QSA]
 
-# ---- PORTFOLIO ----
-# 3-segment case studies (specific prefixes first)
-RewriteRule ^portfolio/web-design-development/([^/]+)/([^/]+)/?$ portfolio/web-design/case-study.php?slug=$2 [L,QSA]
-RewriteRule ^portfolio/digital-marketing/([^/]+)/([^/]+)/?$ portfolio/digital-marketing/case-study.php?slug=$2 [L,QSA]
+# ==================== ADMIN (clean URLs) ====================
+RewriteRule ^admin/?$                                              admin/index.php [L,QSA]
+RewriteRule ^admin/(login|logout|upload)/?$                        admin/$1.php [L,QSA]
 
-# 2-segment child category
-RewriteRule ^portfolio/([^/]+)/([^/]+)/?$ portfolio/category.php?parent=$1&child=$2 [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^admin/([a-z-]+)/?$                                     admin/$1/index.php [L,QSA]
 
-# 1-segment parent category
-RewriteRule ^portfolio/([^/]+)/?$ portfolio/category.php?parent=$1 [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^admin/([a-z-]+)/([a-z-]+)/?$                           admin/$1/$2.php [L,QSA]
 
-# Index
-RewriteRule ^portfolio/?$ portfolio/index.php [L,QSA]
-
-# ---- SERVICES ----
-# 3-segment service details (specific prefixes first)
-RewriteRule ^services/web-design-development/([^/]+)/([^/]+)/?$ services/web-design/detail.php?slug=$2 [L,QSA]
-RewriteRule ^services/digital-marketing/([^/]+)/([^/]+)/?$ services/digital-marketing/detail.php?slug=$2 [L,QSA]
-
-# 2-segment child category
-RewriteRule ^services/([^/]+)/([^/]+)/?$ services/category.php?parent=$1&child=$2 [L,QSA]
-
-# 1-segment parent category
-RewriteRule ^services/([^/]+)/?$ services/category.php?parent=$1 [L,QSA]
-
-# Index
-RewriteRule ^services/?$ services/index.php [L,QSA]
-
-# ==================== SERVE REAL DIRECTORIES (last) ====================
-# Any URL that matches a physical folder and hasn't been rewritten yet
-# gets served directly (e.g. /uploads/, /assets/).
+# ==================== SERVE REAL DIRECTORIES LAST ====================
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
+
+# ==================== ERROR DOCUMENT ====================
+ErrorDocument 404 /yk-digital-hub/404.php

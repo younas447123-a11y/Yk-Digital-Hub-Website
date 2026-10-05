@@ -1,4 +1,5 @@
 <?php
+$is_homepage = true;
 require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/testimonials.php';
@@ -61,12 +62,22 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
 
         <!-- ==== 3 Rotating Backgrounds (zoom-in) ==== -->
     <div class="absolute inset-0 z-0" aria-hidden="true">
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 animate-zoom-in"
-               style="background-image:url('<?= BASE_URL ?>/uploads/components/hero1.png'); animation-delay: 0s;"></div>
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 animate-zoom-in"
-               style="background-image:url('<?= BASE_URL ?>/uploads/components/hero2.png'); animation-delay: 3s;"></div>
-        <div class="absolute inset-0 bg-cover bg-center opacity-0 animate-zoom-in"
-               style="background-image:url('<?= BASE_URL ?>/uploads/components/hero3.png'); animation-delay: 6s;"></div>
+       <div class="absolute inset-0 z-0">
+    <!-- Hero 1 — as an <img> for LCP -->
+    <img src="<?= BASE_URL ?>/uploads/components/hero1.webp"
+         alt="YK Digital Hub — Web Design & Digital Marketing Agency"
+         width="1600" height="900"
+         fetchpriority="high"
+         decoding="async"
+         class="absolute inset-0 w-full h-full object-cover animate-zoom-out-first"
+         style="animation-delay: 0s;">
+
+    <!-- Hero 2 & 3 — as background images (defer these) -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-0 animate-zoom-out"
+         style="background-image:url('<?= BASE_URL ?>/uploads/components/hero2.webp'); animation-delay: 7s;"></div>
+    <div class="absolute inset-0 bg-cover bg-center opacity-0 animate-zoom-out"
+         style="background-image:url('<?= BASE_URL ?>/uploads/components/hero3.webp'); animation-delay: 14s;"></div>
+</div>
     </div>
 
     <!-- ==== Gradient Overlays ==== -->
@@ -135,14 +146,14 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
 
             <!-- Primary CTA -->
             <a href="<?= BASE_URL ?>/contact.php"
-               class="group inline-flex items-center gap-2 px-7 py-4 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-[15px] rounded-full shadow-[0_10px_25px_rgba(37,99,235,0.35)] hover:shadow-[0_16px_34px_rgba(37,99,235,0.5)] hover:-translate-y-0.5 hover:scale-[1.03] transition-all duration-300 animate-pulse-glow">
+               class="group inline-flex items-center gap-2 px-7 py-4 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-[15px] rounded-full shadow-[0_10px_25px_rgba(37,99,235,0.35)] hover:shadow-[0_16px_34px_rgba(37,99,235,0.5)] hover:-translate-y-0.5 hover:scale-[1.03] transition duration-300 animate-pulse-glow">
                 Start Your Project
                 <i class="fas fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
 
             <!-- Secondary CTA -->
             <a href="<?= BASE_URL ?>/portfolio/web-design-development/"
-                    class="inline-flex items-center gap-2 px-7 py-4 bg-gradient-to-r from-[#ffb000] to-[#ff8a00] hover:from-[#ffc12a] hover:to-[#ff6b00] text-white font-bold text-[15px] rounded-full shadow-[0_10px_25px_rgba(255,138,0,0.32)] hover:shadow-[0_16px_34px_rgba(255,107,0,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03]">
+                    class="inline-flex items-center gap-2 px-7 py-4 bg-gradient-to-r from-[#ffb000] to-[#ff8a00] hover:from-[#ffc12a] hover:to-[#ff6b00] text-white font-bold text-[15px] rounded-full shadow-[0_10px_25px_rgba(255,138,0,0.32)] hover:shadow-[0_16px_34px_rgba(255,107,0,0.45)] transition duration-300 hover:-translate-y-0.5 hover:scale-[1.03]">
                 <i class="fas fa-play text-xs"></i>
                 View Our Work
             </a>
@@ -231,7 +242,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
         <div class="what-we-do-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
 
             <!-- 01 · Website Design -->
-            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-blue-500/60 rounded-2xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(37,99,235,0.35)]">
+            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-blue-500/60 rounded-2xl p-7 lg:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(37,99,235,0.35)]">
                 <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-5">Design</span>
                 <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600/25 to-cyan-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-2xl mb-5">
                     <i class="fas fa-palette"></i>
@@ -240,13 +251,13 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <p class="text-slate-400 text-base leading-relaxed mb-6">
                     Custom, responsive, conversion-focused website design for small businesses, clinics and startups.
                 </p>
-                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-blue-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-blue-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                     Explore <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
 
             <!-- 02 · Website Development -->
-            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-violet-500/60 rounded-2xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(139,92,246,0.35)]">
+            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-violet-500/60 rounded-2xl p-7 lg:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(139,92,246,0.35)]">
                 <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-violet-500/10 text-violet-400 border border-violet-500/20 mb-5">Development</span>
                 <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-600/25 to-fuchsia-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 text-2xl mb-5">
                     <i class="fas fa-code"></i>
@@ -255,13 +266,13 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <p class="text-slate-400 text-base leading-relaxed mb-6">
                     Full-stack development — WordPress, Shopify, custom CMS, APIs and web applications.
                 </p>
-                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-violet-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-violet-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                     Explore <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
 
             <!-- 03 · Website Redesign -->
-            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(245,158,11,0.35)]">
+            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-7 lg:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(245,158,11,0.35)]">
                 <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-5">Redesign</span>
                 <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-600/25 to-orange-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-2xl mb-5">
                     <i class="fas fa-sync-alt"></i>
@@ -270,13 +281,13 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <p class="text-slate-400 text-base leading-relaxed mb-6">
                     Modernize outdated websites without losing rankings, traffic or hard-earned SEO authority.
                 </p>
-                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-amber-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-amber-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                     Explore <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
 
             <!-- 04 · Local SEO (POPULAR) -->
-            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-emerald-500/60 rounded-2xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(16,185,129,0.35)]">
+            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-emerald-500/60 rounded-2xl p-7 lg:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(16,185,129,0.35)]">
                 <div class="flex items-center gap-2 mb-5">
                     <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">SEO</span>
                     <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold tracking-wider uppercase rounded bg-emerald-500 text-white">Popular</span>
@@ -288,13 +299,13 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <p class="text-slate-400 text-base leading-relaxed mb-6">
                     Google Business Profile optimization, local citations and map-pack rankings for clinics and local businesses.
                 </p>
-                <a href="<?= BASE_URL ?>/services/digital-marketing/" class="inline-flex items-center gap-2 text-emerald-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                <a href="<?= BASE_URL ?>/services/digital-marketing/" class="inline-flex items-center gap-2 text-emerald-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                     Explore <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
 
             <!-- 05 · Healthcare Websites (CORE SPECIALIZATION — spans 2 columns) -->
-            <div class="group relative bg-gradient-to-br from-red-950/60 to-slate-900/60 border border-red-500/30 hover:border-red-500/70 rounded-2xl p-8 lg:p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(239,68,68,0.4)] lg:col-span-2">
+            <div class="group relative bg-gradient-to-br from-red-950/60 to-slate-900/60 border border-red-500/30 hover:border-red-500/70 rounded-2xl p-8 lg:p-10 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(239,68,68,0.4)] lg:col-span-2">
                 <div class="flex items-center gap-2 mb-5">
                     <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-red-500/15 text-red-400 border border-red-500/25">
                         <i class="fas fa-star text-[10px] mr-1"></i> Healthcare
@@ -310,7 +321,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                         <p class="text-slate-300 text-base leading-relaxed mb-6">
                             HIPAA-aware, GDPR-ready websites and SEO for clinics, dentists, doctors, hospitals and medical practices. Our deepest specialization — with patient-friendly UX, compliance language and healthcare-specific case studies.
                         </p>
-                        <a href="<?= BASE_URL ?>/contact.php" class="inline-flex items-center gap-2 text-red-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                        <a href="<?= BASE_URL ?>/contact.php" class="inline-flex items-center gap-2 text-red-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                             Book a Healthcare Consult <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
@@ -318,7 +329,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
             </div>
 
             <!-- 06 · Ecommerce -->
-            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-cyan-500/60 rounded-2xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(6,182,212,0.35)]">
+            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-cyan-500/60 rounded-2xl p-7 lg:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(6,182,212,0.35)]">
                 <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-5">Ecommerce</span>
                 <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600/25 to-sky-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl mb-5">
                     <i class="fas fa-shopping-cart"></i>
@@ -327,13 +338,13 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <p class="text-slate-400 text-base leading-relaxed mb-6">
                     Fast, secure online stores built on Shopify, WooCommerce or custom stacks — engineered to convert.
                 </p>
-                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-cyan-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-cyan-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                     Explore <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
 
             <!-- 07 · Digital Marketing -->
-            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-pink-500/60 rounded-2xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(236,72,153,0.35)]">
+            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-pink-500/60 rounded-2xl p-7 lg:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(236,72,153,0.35)]">
                 <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-pink-500/10 text-pink-400 border border-pink-500/20 mb-5">Marketing</span>
                 <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-600/25 to-rose-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 text-2xl mb-5">
                     <i class="fas fa-bullhorn"></i>
@@ -342,13 +353,13 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <p class="text-slate-400 text-base leading-relaxed mb-6">
                     SEO, content, paid ads and social — data-driven campaigns that turn visitors into patients and customers.
                 </p>
-                <a href="<?= BASE_URL ?>/services/digital-marketing/" class="inline-flex items-center gap-2 text-pink-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                <a href="<?= BASE_URL ?>/services/digital-marketing/" class="inline-flex items-center gap-2 text-pink-400 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                     Explore <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
 
             <!-- 08 · WordPress & CMS -->
-            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-slate-500/60 rounded-2xl p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(148,163,184,0.35)]">
+            <div class="group relative bg-slate-900/60 border border-slate-800 hover:border-slate-500/60 rounded-2xl p-7 lg:p-8 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_-15px_rgba(148,163,184,0.35)]">
                 <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-wider uppercase rounded-md bg-slate-500/10 text-slate-300 border border-slate-500/20 mb-5">CMS</span>
                 <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-slate-600/25 to-slate-500/10 border border-slate-500/20 flex items-center justify-center text-slate-300 text-2xl mb-5">
                     <i class="fab fa-wordpress"></i>
@@ -357,7 +368,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <p class="text-slate-400 text-base leading-relaxed mb-6">
                     Custom WordPress themes, plugins and headless CMS builds — easy to manage, fast to load.
                 </p>
-                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-slate-300 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
+                <a href="<?= BASE_URL ?>/services/web-design-development/" class="inline-flex items-center gap-2 text-slate-300 text-xs font-bold tracking-[0.15em] uppercase group-hover:gap-3 transition">
                     Explore <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
@@ -506,6 +517,8 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
 </section>
 
 <!-- Load Space Grotesk font -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -588,7 +601,7 @@ renderFAQ([
                 <article class="blog-card">
                     <a href="<?= BASE_URL ?>/blog/<?= htmlspecialchars($p['slug']) ?>/" class="blog-card-image">
                         <?php if (!empty($p['featured_image'])): ?>
-                            <img src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['featured_image_alt'] ?: $p['title']) ?>" loading="lazy">
+                            <img src="<?= htmlspecialchars($p['featured_image']) ?>" alt="<?= htmlspecialchars($p['featured_image_alt'] ?: $p['title']) ?>" width="800" height="500" loading="lazy">
                         <?php else: ?><div class="blog-card-placeholder"><i class="fas fa-newspaper"></i></div><?php endif; ?>
                     </a>
                     <div class="blog-card-body">
@@ -617,7 +630,7 @@ $home_whatsapp_url = 'https://wa.me/' . ($home_whatsapp_num ?: '923069776937');
 <section class="home-cta">
     <div class="container home-transform-grid">
         <div class="home-transform-visual">
-            <img src="<?= BASE_URL ?>/uploads/components/ready%20to%20transform.png" alt="Ready to transform your business" loading="lazy">
+            <img src="<?= BASE_URL ?>/uploads/components/ready%20to%20transform.png" alt="Ready to transform your business" width="1000" height="700" loading="lazy">
         </div>
         <div class="home-cta-box home-transform-copy">
             <h2>Ready to Transform Your Business?</h2>

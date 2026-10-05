@@ -244,6 +244,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                 <div style="position:relative; border-radius:24px; overflow:hidden; box-shadow: 0 30px 70px -20px rgba(43,63,92,.28); border:1px solid #e2e8f0; background:#f1f5f9;">
                     <img src="<?= BASE_URL ?>/uploads/components/founder.png"
                          alt="Younas Khan — Founder of YK Digital Hub"
+                         width="800" height="1000"
                          style="width:100%; display:block; aspect-ratio:4/5; object-fit:cover;"
                          onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#E0F2FE,#FFF9E6)'; this.parentElement.insertAdjacentHTML('beforeend','<div style=\'aspect-ratio:4/5; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#94a3b8; font-family:Inter,sans-serif;\'><i class=\'fas fa-user-tie\' style=\'font-size:80px; margin-bottom:16px; opacity:.5;\'></i><div style=\'font-size:14px; font-weight:600;\'>Add founder.png to</div><code style=\'font-size:12px; color:#64748b; margin-top:4px;\'>/uploads/components/founder.png</code></div>\');">
 

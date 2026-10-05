@@ -23,7 +23,7 @@ $__socials = [
             <!-- Column 1 — Brand + description + socials -->
             <div class="lg:col-span-4 lg:pr-8">
                 <a href="<?= BASE_URL ?>/" class="inline-flex items-center gap-3 mb-6">
-                    <img src="<?= BASE_URL ?>/uploads/components/logo.png" alt="YK Digital Hub logo" class="w-12 h-12 rounded-xl object-contain bg-white">
+                    <img src="<?= BASE_URL ?>/uploads/components/logo.png" alt="YK Digital Hub logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-white">
                     <span class="text-2xl font-extrabold tracking-tight" style="color:#2B3F5C;">
                         YK <span style="color:#0084FF;">Digital</span> <span style="color:#FF8A00;">Hub</span>
                     </span>
@@ -156,11 +156,11 @@ $__socials = [
             <div class="lg:col-span-2">
                 <h4 class="text-xl font-bold mb-6" style="color:#FF8A00;">Company</h4>
                 <ul class="space-y-4 mb-9">
-                    <li><a href="<?= BASE_URL ?>/about.php" class="text-slate-700 hover:text-[#0084FF] transition-colors text-base">About Us</a></li>
+                    <li><a href="<?= BASE_URL ?>/about" class="text-slate-700 hover:text-[#0084FF] transition-colors text-base">About Us</a></li>
                     <li><a href="<?= BASE_URL ?>/services/" class="text-slate-700 hover:text-[#0084FF] transition-colors text-base">Services</a></li>
                     <li><a href="<?= BASE_URL ?>/portfolio/" class="text-slate-700 hover:text-[#0084FF] transition-colors text-base">Portfolio</a></li>
                     <li><a href="<?= BASE_URL ?>/blog/" class="text-slate-700 hover:text-[#0084FF] transition-colors text-base">Blog</a></li>
-                    <li><a href="<?= BASE_URL ?>/contact.php" class="text-slate-700 hover:text-[#0084FF] transition-colors text-base">Contact</a></li>
+                    <li><a href="<?= BASE_URL ?>/contact" class="text-slate-700 hover:text-[#0084FF] transition-colors text-base">Contact</a></li>
                 </ul>
 
                 <h4 class="text-base font-bold mb-4" style="color:#2B3F5C;">Get in Touch</h4>

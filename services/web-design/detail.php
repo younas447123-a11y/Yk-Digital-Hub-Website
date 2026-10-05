@@ -188,7 +188,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
             <div style="position: relative;">
                 <?php if ($hero_image): ?>
                     <div style="background: #fff; border-radius: 22px; box-shadow: 0 24px 70px rgba(0,132,255,0.18); overflow: hidden; border: 1px solid #dbeafe;">
-                        <img src="<?= htmlspecialchars($hero_image) ?>" alt="<?= htmlspecialchars($service['title']) ?>" style="width: 100%; display: block;">
+                        <img src="<?= htmlspecialchars($hero_image) ?>" alt="<?= htmlspecialchars($service['title']) ?>" width="1600" height="900" style="width: 100%; display: block;">
                     </div>
                 <?php else: ?>
                     <div style="background: #fff; border-radius: 22px; box-shadow: 0 24px 70px rgba(0,132,255,0.15); overflow: hidden; border: 1px solid #dbeafe;">
@@ -320,7 +320,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
             </div>
             <?php if ($has_img): ?>
                 <div style="<?= $flip ? 'order: 1;' : '' ?>">
-                    <img src="<?= htmlspecialchars($sec['image']) ?>" alt="<?= htmlspecialchars($sec['heading'] ?? $service['title']) ?>" loading="lazy"
+                    <img src="<?= htmlspecialchars($sec['image']) ?>" alt="<?= htmlspecialchars($sec['heading'] ?? $service['title']) ?>" width="1200" height="800" loading="lazy"
                          style="width: 100%; border-radius: 22px; box-shadow: 0 28px 70px rgba(0,132,255,0.2); display: block;">
                 </div>
             <?php endif; ?>
@@ -449,7 +449,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                    onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                     <?php if (!empty($r['hero_image'])): ?>
                         <div style="aspect-ratio: 16/10; background: #f1f5f9; overflow: hidden;">
-                            <img src="<?= htmlspecialchars($r['hero_image']) ?>" alt="<?= htmlspecialchars($r['title']) ?>" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="<?= htmlspecialchars($r['hero_image']) ?>" alt="<?= htmlspecialchars($r['title']) ?>" width="800" height="500" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     <?php else: ?>
                         <div style="aspect-ratio: 16/10; background: linear-gradient(135deg, #eff6ff, #dbeafe); display: flex; align-items: center; justify-content: center; font-size: 46px;">

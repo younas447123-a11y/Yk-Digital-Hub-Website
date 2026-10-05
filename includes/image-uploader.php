@@ -41,7 +41,7 @@ if (!function_exists('renderImageUploader')) {
 
                 <div data-preview style="margin-bottom:12px; text-align:center; min-height:100px; display:flex; align-items:center; justify-content:center; background:#fff; border-radius:8px; padding:8px; overflow:hidden;">
                     <?php if ($value): ?>
-                        <img src="<?= htmlspecialchars($value) ?>" alt="Preview" style="max-width:100%; max-height:220px; border-radius:6px; display:block;">
+                        <img src="<?= htmlspecialchars($value) ?>" alt="Preview" width="320" height="220" style="max-width:100%; max-height:220px; border-radius:6px; display:block;">
                     <?php else: ?>
                         <div style="color:#94a3b8; font-family:'Inter',sans-serif; font-size:14px; padding:24px 0;">
                             <i class="fas fa-image" style="font-size:32px; display:block; margin-bottom:8px; opacity:.5;"></i>

@@ -8,7 +8,7 @@
     </div> <!-- .admin-wrapper -->
 
     <!-- Admin JavaScript -->
-    <script src="<?= BASE_URL ?>/assets/js/admin.js"></script>
+    <script src="<?= BASE_URL ?>/assets/js/admin.js" defer></script>
     <script>
         // Flash messages auto-dismiss after 5 seconds
         document.addEventListener('DOMContentLoaded', function() {

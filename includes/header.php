@@ -17,6 +17,7 @@ $robots           = $robots           ?? 'index, follow';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($page_title) ?></title>
+
     <?php if ($page_description): ?>
         <meta name="description" content="<?= htmlspecialchars($page_description) ?>">
     <?php endif; ?>
@@ -29,85 +30,63 @@ $robots           = $robots           ?? 'index, follow';
     <meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>">
     <meta property="og:type" content="website">
 
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preload LCP image on homepage only -->
+    <?php if (!empty($is_homepage)): ?>
+        <link rel="preload" as="image" href="<?= BASE_URL ?>/assets/images/hero1.webp" fetchpriority="high">
+    <?php endif; ?>
 
-    <!-- Tailwind config -->
-    <script>
-    tailwind.config = {
-        corePlugins: {
-            preflight: false,
-        },
-        theme: {
-            extend: {
-                colors: {
-                    brand: {
-                        50:  '#eff6ff',
-                        100: '#dbeafe',
-                        500: '#3b82f6',
-                        600: '#2563eb',
-                        700: '#1d4ed8',
-                    }
-                },
-                fontFamily: {
-                    sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif']
-                },
-                keyframes: {
-                    zoomIn: {
-                        '0%':   { transform: 'scale(1)',    opacity: '0' },
-                        '8%':   { opacity: '1' },
-                        '30%':  { transform: 'scale(1.08)', opacity: '1' },
-                        '38%':  { transform: 'scale(1.1)',  opacity: '0' },
-                        '100%': { transform: 'scale(1.1)',  opacity: '0' },
-                    },
-                    fadeUp: {
-                        '0%':   { opacity: '0', transform: 'translateY(30px)' },
-                        '100%': { opacity: '1', transform: 'translateY(0)' },
-                    },
-                    slideRight: {
-                        '0%':   { opacity: '0', transform: 'translateX(-40px)' },
-                        '100%': { opacity: '1', transform: 'translateX(0)' },
-                    },
-                    pulseGlow: {
-                        '0%, 100%': { boxShadow: '0 0 0 0 rgba(37, 99, 235, 0.55)' },
-                        '50%':      { boxShadow: '0 0 0 14px rgba(37, 99, 235, 0)' },
-                    },
-                    floatY: {
-                        '0%, 100%': { transform: 'translateY(0)' },
-                        '50%':      { transform: 'translateY(-12px)' },
-                    },
-                    dotPulse: {
-                        '0%, 100%': { opacity: '0.35', transform: 'scale(1)' },
-                        '50%':      { opacity: '1',    transform: 'scale(1.4)' },
-                    },
-                },
-                animation: {
-                    'zoom-in':     'zoomIn 9s ease-in-out infinite',
-                    'fade-up':     'fadeUp 0.8s ease-out forwards',
-                    'slide-right': 'slideRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards',
-                    'pulse-glow':  'pulseGlow 3s ease-in-out 2s infinite',
-                    'float-y':     'floatY 6s ease-in-out infinite',
-                    'dot-pulse':   'dotPulse 7s ease-in-out infinite',
-                },
-            }
-        }
-    }
-    </script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>/uploads/components/logo.png">
+    <link rel="apple-touch-icon" href="<?= BASE_URL ?>/uploads/components/logo.png">
+    <meta name="theme-color" content="#0084FF">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CDN (replace with compiled build later) -->
+  
 
-    <!-- Blog typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-
+  <!-- Font Awesome — load async, not blocking -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/tailwind.css">
     <!-- Site styles -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/frontend.css">
 
     <style>
+        html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
+        *, *::before, *::after { box-sizing: border-box; }
+        img, video, iframe, svg { max-width: 100%; height: auto; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        body { font-family: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif; }
+        /* Fix hero typing layout shift */
+.hero-type-line {
+    display: block;
+    min-height: 1.08em;
+}
+@media (max-width: 768px) {
+    .hero-type-line {
+        min-height: calc(1.08em * 2);
+    }
+}
+/* Hero 1 — visible immediately, no fade-in delay (fixes mobile LCP) */
+@keyframes zoomOutFirst {
+    0%   { transform: scale(1.25); opacity: 1; }
+    33%  { transform: scale(1.0);  opacity: 1; }
+    43%  { opacity: 0; }
+    100% { transform: scale(1.0);  opacity: 0; }
+}
+.animate-zoom-out-first {
+    animation: zoomOutFirst 21s ease-in-out infinite;
+}
+/* Force GPU acceleration on animated elements — fixes non-composited animations */
+
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
     </style>
 </head>
 <body class="bg-white text-slate-800">

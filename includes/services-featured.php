@@ -135,6 +135,7 @@ if (!function_exists('renderFeaturedServices')) {
                                                 <?php if ($s['hero_image']): ?>
                                                     <img src="<?= htmlspecialchars($s['hero_image']) ?>"
                                                          alt="<?= htmlspecialchars($s['title']) ?> — <?= htmlspecialchars($s['child_name']) ?> service by YK Digital Hub"
+                                                         width="800" height="500"
                                                          loading="lazy"
                                                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                                                 <?php else: ?>
@@ -214,6 +215,7 @@ if (!function_exists('renderFeaturedServices')) {
                                 <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
                                     <?php if ($s['hero_image']): ?>
                                         <img src="<?= htmlspecialchars($s['hero_image']) ?>" alt="<?= htmlspecialchars($s['title']) ?>"
+                                             width="800" height="500"
                                              loading="lazy"
                                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                                     <?php else: ?>

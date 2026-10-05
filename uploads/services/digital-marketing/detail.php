@@ -218,7 +218,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) {
                         <?php endif; ?>
                         <?php if (!empty($section['image'])): ?>
                             <div class="image">
-                                <img src="<?= htmlspecialchars($section['image']) ?>" alt="<?= !empty($section['heading']) ? htmlspecialchars($section['heading']) : 'Section image' ?>" loading="lazy">
+                                <img src="<?= htmlspecialchars($section['image']) ?>" alt="<?= !empty($section['heading']) ? htmlspecialchars($section['heading']) : 'Section image' ?>" width="1200" height="800" loading="lazy">
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($section['video_url'])): ?>
@@ -266,7 +266,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) {
                                 <p><?= htmlspecialchars($step['description']) ?></p>
                             <?php endif; ?>
                             <?php if (!empty($step['image'])): ?>
-                                <img src="<?= htmlspecialchars($step['image']) ?>" alt="<?= htmlspecialchars($step['title']) ?>" loading="lazy">
+                                <img src="<?= htmlspecialchars($step['image']) ?>" alt="<?= htmlspecialchars($step['title']) ?>" width="1200" height="800" loading="lazy">
                             <?php endif; ?>
                         </div>
                     </li>

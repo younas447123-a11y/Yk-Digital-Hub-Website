@@ -114,6 +114,7 @@ if (!function_exists('renderCountryFlags')) {
                                 <img src="https://flagcdn.com/w160/<?= htmlspecialchars($c['code']) ?>.png"
                                      srcset="https://flagcdn.com/w320/<?= htmlspecialchars($c['code']) ?>.png 2x"
                                      alt="<?= htmlspecialchars($c['name']) ?> flag"
+                                     width="20" height="15"
                                      loading="lazy">
                             </div>
                         <?php endforeach; ?>

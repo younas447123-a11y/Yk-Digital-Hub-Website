@@ -1,3 +1,24 @@
+/* Fallback font metrics — prevents CLS when Inter loads */
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial');
+    size-adjust: 107%;
+    ascent-override: 90%;
+    descent-override: 22.43%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: 'Space Grotesk Fallback';
+    src: local('Arial');
+    size-adjust: 102%;
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+}
+
+
+
 /* Service detail page styles */
 .service-hero {
     padding: 80px 0;
