@@ -14,6 +14,7 @@ require_once __DIR__ . '/functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($page_title) ? htmlspecialchars($page_title) . ' - ' : '' ?>YK Digital Hub Admin</title>
+    <link rel="icon" type="image/webp" href="<?= BASE_URL ?>/uploads/components/logo.webp?v=2">
     <!-- Admin CSS -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/admin.css?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">

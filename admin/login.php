@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - YK Digital Hub</title>
+    <link rel="icon" type="image/webp" href="<?= BASE_URL ?>/uploads/components/logo.webp?v=2">
     <style>
         * {
             margin: 0;
