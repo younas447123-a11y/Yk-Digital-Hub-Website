@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-container">
         <div class="login-header">
-            <img src="<?= BASE_URL ?>/uploads/components/logo.png" alt="YK Digital Hub logo" width="72" height="72" class="login-logo">
+            <img src="<?= BASE_URL ?>/uploads/components/logo.webp" alt="YK Digital Hub logo" width="72" height="72" class="login-logo">
             <h1>YK Digital Hub</h1>
             <span class="brand">Admin Login</span>
         </div>

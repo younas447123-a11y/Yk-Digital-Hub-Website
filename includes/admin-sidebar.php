@@ -9,7 +9,7 @@ $current_page = $current_page ?? 'dashboard';
 <aside class="admin-sidebar" id="adminSidebar">
     <div class="sidebar-brand">
         <a href="<?= BASE_URL ?>/admin/index.php">
-            <img src="<?= BASE_URL ?>/uploads/components/logo.png" alt="YK Digital Hub logo" width="52" height="52" class="brand-logo">
+            <img src="<?= BASE_URL ?>/uploads/components/logo.webp" alt="YK Digital Hub logo" width="52" height="52" class="brand-logo">
             <span class="brand-text">YK Digital Hub</span>
         </a>
     </div>

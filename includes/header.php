@@ -36,8 +36,8 @@ $robots           = $robots           ?? 'index, follow';
     <?php endif; ?>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?= BASE_URL ?>/uploads/components/logo.png">
-    <link rel="apple-touch-icon" href="<?= BASE_URL ?>/uploads/components/logo.png">
+    <link rel="icon" type="image/webp" href="<?= BASE_URL ?>/uploads/components/logo.webp">
+    <link rel="apple-touch-icon" href="<?= BASE_URL ?>/uploads/components/logo.webp">
     <meta name="theme-color" content="#0084FF">
 
     <!-- Tailwind CDN (replace with compiled build later) -->

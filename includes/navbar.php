@@ -16,7 +16,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
             <!-- Logo -->
             <picture>
     <source srcset="<?= BASE_URL ?>/uploads/components/logo.webp" type="image/webp">
-    <img src="<?= BASE_URL ?>/uploads/components/logo.png"
+    <img src="<?= BASE_URL ?>/uploads/components/logo.webp"
          alt="YK Digital Hub logo"
          width="44" height="44"
          class="w-11 h-11 rounded-lg object-contain bg-white"

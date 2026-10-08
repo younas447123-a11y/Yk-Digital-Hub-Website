@@ -23,7 +23,7 @@ $__socials = [
             <!-- Column 1 — Brand + description + socials -->
             <div class="lg:col-span-4 lg:pr-8">
                 <a href="<?= BASE_URL ?>/" class="inline-flex items-center gap-3 mb-6">
-                    <img src="<?= BASE_URL ?>/uploads/components/logo.png" alt="YK Digital Hub logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-white">
+                    <img src="<?= BASE_URL ?>/uploads/components/logo.webp" alt="YK Digital Hub logo" width="48" height="48" class="w-12 h-12 rounded-xl object-contain bg-white">
                     <span class="text-2xl font-extrabold tracking-tight" style="color:#2B3F5C;">
                         YK <span style="color:#0084FF;">Digital</span> <span style="color:#FF8A00;">Hub</span>
                     </span>
