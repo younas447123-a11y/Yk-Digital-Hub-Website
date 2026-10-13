@@ -104,7 +104,7 @@ $base = substr($base, 0, 50);
 
 $filename    = $base . '-' . bin2hex(random_bytes(4)) . '.' . $ext;
 $target_path = $target_dir . $filename;
-$public_path = rtrim(SITE_BASE_PATH, '/') . '/uploads/' . $folder . '/' . $filename;
+$public_path = rtrim(site_base_path(), '/') . '/uploads/' . $folder . '/' . $filename;
 
 if (!move_uploaded_file($file['tmp_name'], $target_path)) {
     echo json_encode(['success' => false, 'error' => 'Could not save uploaded file']);

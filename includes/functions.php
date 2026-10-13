@@ -139,7 +139,7 @@ function site_image_url($image_path) {
     }
 
     $upload_path = substr($path, $uploads_position + 1);
-    $url = rtrim(SITE_BASE_PATH, '/') . '/' . ltrim($upload_path, '/');
+    $url = rtrim(site_base_path(), '/') . '/' . ltrim($upload_path, '/');
     if (isset($parts['query'])) {
         $url .= '?' . $parts['query'];
     }
@@ -147,6 +147,30 @@ function site_image_url($image_path) {
         $url .= '#' . $parts['fragment'];
     }
     return $url;
+}
+
+/**
+ * Resolve the public path to the application without relying on deploy-excluded config.
+ */
+function site_base_path() {
+    if (defined('SITE_BASE_PATH')) {
+        return SITE_BASE_PATH;
+    }
+
+    $site_root_path = realpath(ROOT_PATH);
+    $document_root_path = isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : false;
+    if ($site_root_path !== false && $document_root_path !== false) {
+        $site_root_path = str_replace('\\', '/', $site_root_path);
+        $document_root_path = rtrim(str_replace('\\', '/', $document_root_path), '/');
+        if (strcasecmp($site_root_path, $document_root_path) === 0) {
+            return '';
+        }
+        if (stripos($site_root_path, $document_root_path . '/') === 0) {
+            return substr($site_root_path, strlen($document_root_path));
+        }
+    }
+
+    return rtrim(str_replace('\\', '/', parse_url(BASE_URL, PHP_URL_PATH) ?: ''), '/');
 }
 
 /**

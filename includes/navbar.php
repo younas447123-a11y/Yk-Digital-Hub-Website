@@ -9,7 +9,7 @@ $whatsapp_raw = getSiteSetting('whatsapp', '');
 $whatsapp_num = preg_replace('/[^0-9]/', '', $whatsapp_raw);
 $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
 ?>
-<header class="sticky top-0 z-50 bg-white border-b-2 border-slate-200 shadow-sm">
+<header class="yk-site-header sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="flex items-center justify-between h-20 lg:h-24">
 
@@ -29,7 +29,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
             </a>
 
             <!-- ============ DESKTOP NAV ============ -->
-            <nav class="hidden lg:flex items-center gap-1 2xl:gap-3 ml-4 2xl:ml-10" aria-label="Main navigation">
+            <nav class="yk-desktop-nav hidden xl:flex items-center gap-1 2xl:gap-3 ml-4 2xl:ml-10" aria-label="Main navigation">
 
                 <a href="<?= BASE_URL ?>/"
                    class="whitespace-nowrap px-2 xl:px-3 2xl:px-5 py-3 text-[15px] 2xl:text-[17px] font-semibold transition rounded-lg hover:bg-slate-50 <?= $active === 'home' ? 'text-[#0084FF]' : 'text-slate-700 hover:text-[#0084FF]' ?>">
@@ -163,7 +163,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
             </nav>
 
             <!-- ============ RIGHT BUTTONS ============ -->
-            <div class="hidden xl:flex items-center gap-2 2xl:gap-3 shrink-0">
+            <div class="yk-desktop-actions hidden xl:flex items-center gap-2 2xl:gap-3 shrink-0">
                 <a href="<?= htmlspecialchars($whatsapp_url) ?>" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center gap-2.5 whitespace-nowrap px-4 2xl:px-6 py-3.5 text-white font-bold text-[15px] rounded-full shadow-sm transition hover:opacity-90 hover:-translate-y-0.5"
                    style="background:#25D366;">
@@ -178,7 +178,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
 
             <!-- Mobile toggle -->
             <button id="navToggle"
-                    class="lg:hidden inline-flex items-center justify-center w-12 h-12 rounded-lg hover:bg-slate-100 transition"
+                    class="yk-mobile-toggle xl:hidden inline-flex items-center justify-center w-12 h-12 rounded-lg hover:bg-slate-100 transition"
                     aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
                 <i class="fas fa-bars text-2xl" style="color:#2B3F5C;"></i>
             </button>
@@ -186,7 +186,7 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
     </div>
 
     <!-- ============ MOBILE NAV ============ -->
-    <div id="mobileNav" class="lg:hidden hidden border-t-2 border-slate-300 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <div id="mobileNav" class="yk-mobile-menu xl:hidden hidden border-t border-slate-200 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto">
         <nav class="max-w-[1600px] mx-auto px-4 py-4 space-y-1" aria-label="Mobile navigation">
 
             <a href="<?= BASE_URL ?>/"
@@ -336,6 +336,14 @@ $whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
 </header>
 
 <style>
+    .yk-site-header { border-bottom: 2px solid #e2e8f0 !important; }
+    .yk-mobile-menu { border-top: 2px solid #cbd5e1 !important; }
+    @media (min-width: 1200px) and (max-width: 1279px) {
+        .yk-desktop-nav,
+        .yk-desktop-actions { display: flex !important; }
+        .yk-mobile-toggle,
+        .yk-mobile-menu { display: none !important; }
+    }
     .yk-desktop-menu-panel {
         position: fixed;
         top: 96px;
