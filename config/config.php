@@ -32,6 +32,23 @@ define('ASSETS_PATH', ROOT_PATH . '/assets');
 define('UPLOADS_PATH', ROOT_PATH . '/uploads');
 define('INCLUDES_PATH', ROOT_PATH . '/includes');
 
+$site_base_path = null;
+$site_root_path = realpath(ROOT_PATH);
+$document_root_path = isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : false;
+if ($site_root_path !== false && $document_root_path !== false) {
+    $site_root_path = str_replace('\\', '/', $site_root_path);
+    $document_root_path = rtrim(str_replace('\\', '/', $document_root_path), '/');
+    if (strcasecmp($site_root_path, $document_root_path) === 0) {
+        $site_base_path = '';
+    } elseif (stripos($site_root_path, $document_root_path . '/') === 0) {
+        $site_base_path = substr($site_root_path, strlen($document_root_path));
+    }
+}
+if ($site_base_path === null) {
+    $site_base_path = parse_url(BASE_URL, PHP_URL_PATH) ?: '';
+}
+define('SITE_BASE_PATH', rtrim(str_replace('\\', '/', $site_base_path), '/'));
+
 // =====================================================
 // 5. Upload Directories (relative to UPLOADS_PATH)
 // =====================================================

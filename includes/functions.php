@@ -89,6 +89,10 @@ function sanitize_post_html($html) {
     $html = preg_replace("/\son\w+\s*=\s*'[^']*'/i", '', $html);
     // Strip javascript: URLs
     $html = preg_replace('/javascript\s*:/i', '', $html);
+    $html = preg_replace_callback('/\bsrc\s*=\s*(["\'])(.*?)\1/i', function ($matches) {
+        $src = html_entity_decode($matches[2], ENT_QUOTES, 'UTF-8');
+        return 'src=' . $matches[1] . htmlspecialchars(site_image_url($src), ENT_QUOTES, 'UTF-8') . $matches[1];
+    }, $html);
     return $html;
 }
 
@@ -102,7 +106,50 @@ function estimate_reading_time($html) {
     $text = trim(strip_tags((string)$html));
     $words = $text === '' ? 0 : count(preg_split('/\s+/', $text));
     return max(1, (int)ceil($words / 200));
-}/**
+}
+
+/**
+ * Make local uploaded-image paths portable across hosts and app mount paths.
+ */
+function site_image_url($image_path) {
+    $image_path = trim((string)$image_path);
+    if ($image_path === '') {
+        return '';
+    }
+
+    $parts = parse_url($image_path);
+    if ($parts === false) {
+        return $image_path;
+    }
+
+    $path = $parts['path'] ?? $image_path;
+    $uploads_position = strpos($path, '/uploads/');
+    if ($uploads_position === false && strpos($path, 'uploads/') === 0) {
+        $uploads_position = -1;
+    }
+    if ($uploads_position === false) {
+        return $image_path;
+    }
+
+    $host = strtolower($parts['host'] ?? '');
+    $base_host = strtolower(parse_url(BASE_URL, PHP_URL_HOST) ?: '');
+    $is_local_host = in_array($host, ['localhost', '127.0.0.1', '::1'], true);
+    if ($host !== '' && !$is_local_host && $host !== $base_host) {
+        return $image_path;
+    }
+
+    $upload_path = substr($path, $uploads_position + 1);
+    $url = rtrim(SITE_BASE_PATH, '/') . '/' . ltrim($upload_path, '/');
+    if (isset($parts['query'])) {
+        $url .= '?' . $parts['query'];
+    }
+    if (isset($parts['fragment'])) {
+        $url .= '#' . $parts['fragment'];
+    }
+    return $url;
+}
+
+/**
  * Fetch a site setting by key. Cached per request.
  */
 function getSiteSetting($key, $default = '') {

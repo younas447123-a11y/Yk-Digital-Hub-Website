@@ -48,7 +48,7 @@ include ROOT_PATH . '/includes/navbar.php';
                         <article class="group flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all">
                             <a href="<?= htmlspecialchars($url) ?>" class="relative block aspect-[16/10] overflow-hidden bg-slate-100">
                                 <?php if (!empty($project['hero_image'])): ?>
-                                    <img src="<?= htmlspecialchars($project['hero_image']) ?>"
+                                    <img src="<?= htmlspecialchars(site_image_url($project['hero_image'])) ?>"
                                          alt="<?= htmlspecialchars($project['title']) ?>"
                                          width="800" height="500"
                                          loading="lazy"

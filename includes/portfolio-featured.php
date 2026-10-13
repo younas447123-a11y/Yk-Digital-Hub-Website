@@ -120,7 +120,7 @@ if (!function_exists('renderFeaturedPortfolio')) {
                                 <!-- Image -->
                                 <a href="<?= $url ?>" class="relative block aspect-[16/10] overflow-hidden bg-slate-100">
                                     <?php if ($img): ?>
-                                        <img src="<?= htmlspecialchars($img) ?>"
+                                        <img src="<?= htmlspecialchars(site_image_url($img)) ?>"
                                              alt="<?= htmlspecialchars($p['title']) ?> — <?= htmlspecialchars($p['child_name']) ?> project by YK Digital Hub"
                                              width="800" height="500"
                                              loading="lazy"

@@ -133,7 +133,7 @@ if (!function_exists('renderFeaturedServices')) {
 
                                             <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
                                                 <?php if ($s['hero_image']): ?>
-                                                    <img src="<?= htmlspecialchars($s['hero_image']) ?>"
+                                                    <img src="<?= htmlspecialchars(site_image_url($s['hero_image'])) ?>"
                                                          alt="<?= htmlspecialchars($s['title']) ?> — <?= htmlspecialchars($s['child_name']) ?> service by YK Digital Hub"
                                                          width="800" height="500"
                                                          loading="lazy"
@@ -214,7 +214,7 @@ if (!function_exists('renderFeaturedServices')) {
                                class="group flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-[0_20px_50px_-15px_rgba(43,63,92,0.2)] transition-all duration-300 hover:-translate-y-1">
                                 <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
                                     <?php if ($s['hero_image']): ?>
-                                        <img src="<?= htmlspecialchars($s['hero_image']) ?>" alt="<?= htmlspecialchars($s['title']) ?>"
+                                        <img src="<?= htmlspecialchars(site_image_url($s['hero_image'])) ?>" alt="<?= htmlspecialchars($s['title']) ?>"
                                              width="800" height="500"
                                              loading="lazy"
                                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">

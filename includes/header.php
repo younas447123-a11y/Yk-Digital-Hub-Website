@@ -26,7 +26,7 @@ $robots           = $robots           ?? 'index, follow';
 
     <meta property="og:title" content="<?= htmlspecialchars($og_title) ?>">
     <?php if ($og_description): ?><meta property="og:description" content="<?= htmlspecialchars($og_description) ?>"><?php endif; ?>
-    <?php if ($og_image): ?><meta property="og:image" content="<?= htmlspecialchars($og_image) ?>"><?php endif; ?>
+    <?php if ($og_image): ?><meta property="og:image" content="<?= htmlspecialchars(site_image_url($og_image)) ?>"><?php endif; ?>
     <meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>">
     <meta property="og:type" content="website">
 

@@ -278,7 +278,7 @@ function yk_render_testimonial_card($t) {
 
         <figcaption class="flex items-center gap-4 pt-5 border-t border-slate-100">
             <?php if (!empty($t['client_photo'])): ?>
-                <img src="<?= htmlspecialchars($t['client_photo']) ?>"
+                <img src="<?= htmlspecialchars(site_image_url($t['client_photo'])) ?>"
                      alt="<?= htmlspecialchars($t['client_name']) ?>"
                      width="48" height="48"
                      class="w-12 h-12 rounded-full object-cover shrink-0"

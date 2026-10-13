@@ -157,7 +157,7 @@ if (file_exists(ROOT_PATH . '/includes/navbar.php')) include ROOT_PATH . '/inclu
                     <article class="group flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-[0_20px_50px_-15px_rgba(43,63,92,0.2)] transition-all duration-300 hover:-translate-y-1">
                         <a href="<?= $url ?>" class="relative block aspect-[16/10] overflow-hidden bg-slate-100">
                             <?php if ($p['hero_image']): ?>
-                                <img src="<?= htmlspecialchars($p['hero_image']) ?>"
+                                <img src="<?= htmlspecialchars(site_image_url($p['hero_image'])) ?>"
                                      alt="<?= htmlspecialchars($p['title']) ?> — <?= htmlspecialchars($p['child_name']) ?> project by YK Digital Hub"
                                      width="800" height="500"
                                      loading="lazy"
