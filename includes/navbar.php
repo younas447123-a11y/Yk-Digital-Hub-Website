@@ -5,9 +5,9 @@ $nav_services  = getServiceNavigation();
 $nav_portfolio = getPortfolioNavigation();
 $active        = getActiveNav();
 
-$whatsapp_raw = getSiteSetting('whatsapp', '');
+$whatsapp_raw = getSiteSetting('whatsapp', '923069776937');
 $whatsapp_num = preg_replace('/[^0-9]/', '', $whatsapp_raw);
-$whatsapp_url = $whatsapp_num ? 'https://wa.me/' . $whatsapp_num : '#';
+$whatsapp_url = 'https://wa.me/' . ($whatsapp_num ?: '923069776937');
 ?>
 <header class="yk-site-header sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
